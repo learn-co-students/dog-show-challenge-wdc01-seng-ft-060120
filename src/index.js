@@ -66,16 +66,13 @@ const postDog =(dog, event) => {
         'breed': breed.value,
         'sex': sex.value
     }
-    console.log(dogData);
-    debugger
-    fetch(URL + dog.id, {
+
+    fetch(url + dog.id, {
          method : 'PATCH',
          headers: {'content-type' : 'application/json', 'accept' : 'application/json'},
          body : JSON.stringify(dogData)
     })
-    .then(response => response.json())
-    .then(dog => fetchDogs());
-
+    fetchDogs();
     event.target.reset();
 }
 
